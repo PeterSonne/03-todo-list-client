@@ -16,7 +16,7 @@ class TodoList extends React.Component {
             <li>
               Go surfing <i className="fas fa-minus-circle"></i>
             </li>
-            <li>
+            <li class="done">
               Study JavaScript <i className="fas fa-minus-circle"></i>
             </li>
             <li>

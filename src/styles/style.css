@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+body {
+  background-color: #fbd81f;
+  font-family: Lato;
+  font-weight: bold;
+  color: #000000;
+  font-size: 15pt;
+}
+form {
+  display: flex;
+}
+input {
+  font-family: Lato;
+  border: 1px solid #d3d3d3;
+  border-right-width: 0px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  width: calc(100% - 41px);
+  padding: 8px 16px;
+  box-sizing: border-box;
+  font-size: 15pt;
+  color: #808080;
+}
+input::placeholder {
+  color: #d3d3d3;
+}
+button {
+  background-color: #45c39f;
+  border-width: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: #fff;
+  padding: 14px;
+  font-size: 8pt;
+}
+div.layout {
+  width: 400px;
+  margin: 40px auto;
+}
+div.list {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  margin-top: 40px;
+}
+h1 {
+  font-weight: bolder;
+}
+ul {
+  list-style-type: none;
+  padding: 0px;
+  margin-top: 18px;
+  margin-bottom: 0px;
+}
+li {
+  padding: 10px 12px;
+  margin: 0px;
+  font-weight: bold;
+  font-size: 15pt;
+  border-radius: 24px;
+  transition: background-color 0.5s ease;
+}
+li.done {
+  text-decoration: line-through;
+}
+li:hover {
+  background-color: #f7f7f7;
+}
+li > i {
+  float: right;
+  opacity: 0;
+  visibility: visible;
+  transition: opacity 0.5s ease;
+  color: #fa8072;
+}
+li:hover > i {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* for dev */
+.overlayImg {
+  position: absolute;
+  z-index: 99;
+  opacity: 0.5;
+  top: 0px;
+  left: calc(50vw - 322px);
+  display: none;
+}
