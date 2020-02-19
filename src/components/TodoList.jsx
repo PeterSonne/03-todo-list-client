@@ -1,12 +1,20 @@
 import React from "react";
+import axios from "axios";
 
 class TodoList extends React.Component {
   state = {
-    todos: [
-      { _id: 1, name: "abc" },
-      { _id: 2, name: "cba" }
-    ]
+    todos: []
   };
+  componentDidMount() {
+    axios
+      .get(process.env.REACT_APP_API + "/items")
+      .then(res => {
+        this.setState({
+          todos: res.data
+        });
+      })
+      .catch(err => console.log(err));
+  }
   render() {
     return (
       <div className="layout">
