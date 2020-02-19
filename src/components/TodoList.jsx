@@ -4,15 +4,19 @@ import axios from "axios";
 class TodoList extends React.Component {
   state = {
     todos: [],
-    addInput: ""
+    addInput: "",
+    loading: true
   };
   componentDidMount() {
     axios
       .get(process.env.REACT_APP_API + "/items")
       .then(res => {
-        this.setState({
-          todos: res.data
-        });
+        setTimeout(() => {
+          this.setState({
+            todos: res.data,
+            loading: false
+          });
+        }, 1200);
       })
       .catch(err => console.log(err));
   }
@@ -86,7 +90,9 @@ class TodoList extends React.Component {
       .then(res => {
         // check if response is okay
         if (res.status !== 200 || res.data._id !== id) {
-          console.log(`There was an Error trying to delete ${id}`);
+          console.log(
+            `There was an Error trying to delete ${id}. Please contact your administrator and ask him`
+          );
           return false;
         }
         // remove Item from todo-List in state
@@ -111,6 +117,10 @@ class TodoList extends React.Component {
               <i className="fas fa-plus"></i>
             </button>
           </form>
+          <div
+            className="loader"
+            style={{ display: this.state.loading ? "block" : "none" }}
+          ></div>
           <ul>
             {this.state.todos.map(e => (
               <li

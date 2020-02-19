@@ -90,3 +90,42 @@ li:hover > i {
   left: calc(50vw - 322px);
   display: none;
 }
+
+/* for animation during loading */
+.loader {
+  margin: 10px auto;
+  width: 40px;
+  height: 40px;
+  border-right: 4px solid #45c39f;
+  border-radius: 100%;
+  animation: loaderSpinRight 1100ms linear infinite;
+}
+.loader::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  border-left: 3px solid #45c39f;
+  border-radius: 100%;
+  animation: loaderSpinLeft 1300ms linear infinite;
+}
+@keyframes loaderSpinLeft {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes loaderSpinRight {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
