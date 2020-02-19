@@ -10,8 +10,9 @@ class App extends React.Component {
         <TodoList></TodoList>
         <img
           src="https://portal.tortugacoders.com/media/katas/03/todo-02.png"
-          class="overlayImg"
+          className="overlayImg"
           width="644"
+          alt="sth"
         />
       </>
     );

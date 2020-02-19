@@ -1,6 +1,12 @@
 import React from "react";
 
 class TodoList extends React.Component {
+  state = {
+    todos: [
+      { _id: 1, name: "abc" },
+      { _id: 2, name: "cba" }
+    ]
+  };
   render() {
     return (
       <div className="layout">
@@ -13,15 +19,11 @@ class TodoList extends React.Component {
             </button>
           </form>
           <ul>
-            <li>
-              Go surfing <i className="fas fa-minus-circle"></i>
-            </li>
-            <li class="done">
-              Study JavaScript <i className="fas fa-minus-circle"></i>
-            </li>
-            <li>
-              Make coffee <i className="fas fa-minus-circle"></i>
-            </li>
+            {this.state.todos.map(e => (
+              <li key={e._id} className={e.done ? "done" : ""}>
+                {e.name} <i className="fas fa-minus-circle" />
+              </li>
+            ))}
           </ul>
         </div>
       </div>
