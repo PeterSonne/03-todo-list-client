@@ -93,11 +93,11 @@ li:hover > i {
 
 /* for animation during loading */
 .loader {
-  margin: 10px auto;
+  margin: 16px auto;
   width: 40px;
   height: 40px;
   border-right: 4px solid #45c39f;
-  border-radius: 100%;
+  border-radius: 50%;
   animation: loaderSpinRight 1100ms linear infinite;
 }
 .loader::after {
@@ -108,9 +108,21 @@ li:hover > i {
   position: absolute;
   top: calc(50% - 15px);
   left: calc(50% - 15px);
-  border-left: 3px solid #45c39f;
-  border-radius: 100%;
-  animation: loaderSpinLeft 1300ms linear infinite;
+  border-left: 3px solid #65ceb0;
+  border-radius: 50%;
+  animation: loaderSpinLeft 1300ms ease infinite;
+}
+.loader::before {
+  content: "";
+  width: 54px;
+  height: 54px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 27px);
+  left: calc(50% - 27px);
+  border-left: 3px solid #97e6cf;
+  border-radius: 50%;
+  animation: loaderSpinLeft 1400ms linear infinite;
 }
 @keyframes loaderSpinLeft {
   from {

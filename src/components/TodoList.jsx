@@ -30,23 +30,30 @@ class TodoList extends React.Component {
     // do nothing if string is empty
     if (!this.state.addInput) {
       return false;
+    } else {
+      this.setState({ loading: true });
     }
-    // create Item in DB via API
-    axios
-      .post(process.env.REACT_APP_API + "/items", {
-        name: this.state.addInput
-      })
-      .then(res => {
-        // check if response is okay
-        if (res.status !== 200 || !res.data._id) {
-          console.log(`New Item could not be create!`);
-          return false;
-        }
-        let todos = this.state.todos;
-        todos.unshift(res.data);
-        this.setState({ todos: todos, addInput: "" });
-      })
-      .catch(err => console.log(err));
+    setTimeout(() => {
+      // create Item in DB via API
+      axios
+        .post(process.env.REACT_APP_API + "/items", {
+          name: this.state.addInput
+        })
+        .then(res => {
+          // check if response is okay
+          if (res.status !== 200 || !res.data._id) {
+            console.log(`New Item could not be create!`);
+            return false;
+          }
+          let todos = this.state.todos;
+          todos.unshift(res.data);
+          this.setState({ todos: todos, addInput: "", loading: false });
+        })
+        .catch(err => {
+          console.log(err);
+          this.setState({ loading: false });
+        });
+    }, 1200);
   };
   changeItem = id => {
     // get Item out of Array
